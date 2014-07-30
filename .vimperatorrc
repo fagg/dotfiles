@@ -1,0 +1,20 @@
+" Tab completion settings
+set complete=blh
+set wildmode = 'list:full'
+
+" Visual and interface settings
+set noerrorbells
+set showtabline=1
+set tabnumbers
+set ignorecase
+set smartcase
+set ignorecase
+
+" Key mappings
+let mapleader = ","
+nnoremap j 2j
+nnoremap k 2k
+nnoremap h 2h
+nnoremap l 2l
+nnoremap <leader>l <C-n>
+nnoremap <leader>h <C-p>
