@@ -1,0 +1,16 @@
+# Ashton Fagg's .screenrc
+# Last Edited: July 30 2014
+
+startup_message off
+term screen-256color
+hardstatus alwayslastline
+hardstatus string "%{.bW} [%H] %{.bW}[%-w%{.rW}%n %t%{-}%+w %=]%{.bW} [%d/%m %c] "
+
+#Default screens
+bind c screen 1
+bind ^c screen 1
+bind 0 select 10
+screen -t bash 1
+screen -t bash 2
+screen -t bash 3
+select 1
