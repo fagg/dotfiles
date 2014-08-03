@@ -61,8 +61,8 @@ set wildmode=longest:full,full
 set wildignore=*.swp,*.bak,*.o
 set wildcharm=<Tab>
 nnoremap <leader>b :ls<CR>:b <Space>
-nnoremap <leader>bn :bnext<CR>
-nnoremap <leader>bp :bprev<CR>
+nnoremap <leader>l :bnext<CR>
+nnoremap <leader>h :bprev<CR>
 
 set cmdheight=1
 set scrolloff=5
@@ -86,3 +86,6 @@ set noswapfile
 " System Specific Settings
 set shell=bash
 "***********************************************************************************
+"vim-notes settings
+let g:notes_directories = ['~/Documents/Notes']
+let g:notes_suffix = '.txt'
