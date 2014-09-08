@@ -1,14 +1,13 @@
 " Tab completion settings
 set complete=blh
-set wildmode = 'list:full'
 
 " Visual and interface settings
 set noerrorbells
-set showtabline=1
 set tabnumbers
 set ignorecase
 set smartcase
 set ignorecase
+set gui=nonavigation
 
 " Key mappings
 let mapleader = ","
