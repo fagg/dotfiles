@@ -1,6 +1,6 @@
 "************************************************************************************
 " Ashton Fagg's .vimrc
-" Last Update: June 23 2013
+" Last Update: September 2014
 "************************************************************************************
 filetype plugin on
 execute pathogen#infect()
@@ -21,7 +21,7 @@ set smartindent
 set autoindent
 set copyindent
 set preserveindent
-set textwidth=120
+set textwidth=0
 set pastetoggle=<F2>
 "***********************************************************************************
 " For LaTeX
@@ -86,6 +86,5 @@ set noswapfile
 " System Specific Settings
 set shell=bash
 "***********************************************************************************
-"vim-notes settings
-let g:notes_directories = ['~/Documents/Notes']
-let g:notes_suffix = '.txt'
+let g:slime_target = "screen"
+let g:slime_python_ipython = 1
