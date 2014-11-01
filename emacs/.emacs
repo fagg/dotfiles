@@ -12,14 +12,6 @@
 ;; install dependencies with el-get
 (require 'el-get-settings)
 
-;---------------;
-;;; Utilities ;;;
-;---------------;
-
-;; Git
-(include-plugin "magit")
-(require 'magit)
-
 (include-plugin "evil")
 (require 'evil)
 (evil-mode 1)
@@ -32,7 +24,7 @@
 (require 'markdown-settings)
 
 ;; LaTeX and Auctex
-;;(require 'latex-settings)
+(require 'latex-settings)
 
 ;; Matlab mode
 (require 'matlab-settings)

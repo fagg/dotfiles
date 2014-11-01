@@ -15,9 +15,9 @@
 ; packages to install
 (setq 
  my-packages '(color-theme-tango
-               magit
                markdown-mode
                matlab-mode
+               auctex
                evil
                ))
 

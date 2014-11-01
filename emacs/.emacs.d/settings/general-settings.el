@@ -5,7 +5,7 @@
 ; set PATH, because we don't load .bashrc
 ; function from https://gist.github.com/jakemcc/3887459
 (defun set-exec-path-from-shell-PATH ()
-  (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+  (setenv "PATH" (concat "/usr/local/bin:/usr/texbin" (getenv "PATH")))
   (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo -n $PATH'")))
     (setenv "PATH" path-from-shell)
     (setq exec-path (split-string path-from-shell path-separator))))
@@ -55,7 +55,7 @@
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 (define-key input-decode-map "\e[1;5A" [C-up])
 (define-key input-decode-map "\e[1;5B" [C-down])
-
+(define-key global-map (kbd "RET") 'newline-and-indent)
 ; always use spaces, not tabs, when indenting
 (setq-default indent-tabs-mode nil)
 ; indentation styles
@@ -109,5 +109,10 @@
 ; disable auto save
 (setq auto-save-default nil)
 
-(require 'org)
+; disable some annoying stuff
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(display-time)
+
 (provide 'general-settings)
+
