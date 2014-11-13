@@ -14,7 +14,7 @@
 
 ; packages to install
 (setq 
- my-packages '(color-theme-tango
+ my-packages '(color-theme
                markdown-mode
                matlab-mode
                auctex

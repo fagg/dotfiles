@@ -12,13 +12,11 @@
 ;; install dependencies with el-get
 (require 'el-get-settings)
 
-(include-plugin "evil")
-(require 'evil)
-(evil-mode 1)
+;; vim keybindings
+(require 'evil-settings)
 
-;-----------;
-;;; Modes ;;;
-;-----------;
+;; set up theme and fonts
+(require 'theme-settings)
 
 ;; Markdown mode
 (require 'markdown-settings)
@@ -28,12 +26,3 @@
 
 ;; Matlab mode
 (require 'matlab-settings)
-
-
-
-;---------------------------------------------------------------------
-;; Put auto 'custom' changes in a separate file (this is stuff like
-;; custom-set-faces and custom-set-variables)
-(load 
- (setq custom-file (expand-file-name "settings/custom.el" user-emacs-directory))
- 'noerror)
