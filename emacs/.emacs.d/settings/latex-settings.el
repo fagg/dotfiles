@@ -1,25 +1,29 @@
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
+;;(add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
 (include-plugin "auctex")
 (load "auctex.el" -1 1 1)
-(load "preview-latex.el" -1 1 1)
-(if (system-is-mac)
-    (require 'tex-site)
-    (require 'font-latex)
-    (setq TeX-view-program-list
-          (quote
-           (("Preview"
-             (concat "/Applications/Preview.app/Contents/MacOS/Preview"
-                     " %n %o %b")))))
-    (setq TeX-view-program-selection
-          (quote (((output-dvi style-pstricks) "dvips and gv")
-                  (output-dvi "open")
-                  (output-pdf "Preview")
-                  (output-html "open")))))
-; always start the server for inverse search
-(setq-default TeX-source-correlate-start-server 0)
-(add-hook 'LaTeX-mode-hook
-          (lambda ()
-            (tex-pdf-mode 1)
-            (TeX-source-correlate-mode 1)))
+
+ (setq TeX-auto-save t)
+ (setq TeX-parse-self t)
+ (setq-default TeX-master nil)
+ (add-hook 'LaTeX-mode-hook 'visual-line-mode)
+ (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+ (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+ (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+ (setq reftex-plug-into-AUCTeX t)
+ (setq TeX-PDF-mode t)
+
+ (add-hook 'LaTeX-mode-hook (lambda ()
+    (push
+        '("latexmk" "/usr/texbin/latexmk -pdf %s" TeX-run-TeX nil t
+              :help "Run latexmk on file")
+         TeX-command-list)))
+  (add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "latexmk")))
+  (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
+  (setq TeX-view-program-list
+       '(("PDF Viewer" "/usr/bin/open -a Preview.app %o")))
+
+
+
+
 (provide 'latex-settings)
 

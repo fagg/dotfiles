@@ -18,6 +18,7 @@
                markdown-mode
                matlab-mode
                auctex
+               exec-path-from-shell
                evil
                ))
 

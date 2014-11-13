@@ -15,7 +15,7 @@ alias more='less'
 alias nano='nano -c'
 alias tx='tar -xvf'
 alias tc='tar -czvf'
-alias webdl='~/bin/webdl/grabber.py'
+alias webdl='python ~/bin/webdl/grabber.py'
 
 # These are aliases to easily enable/disable the showing of hidden
 # (dot files) in Finder. Beware that this will restart Finder, so all
@@ -29,7 +29,7 @@ alias dotoff='defaults write com.apple.Finder AppleShowAllFiles NO &&  killall F
 export EDITOR=/usr/bin/vim
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/texbin/:$HOME/bin:/usr/local/bin:$PATH
 
 ##############################################################################################
 # Prompt Settings
