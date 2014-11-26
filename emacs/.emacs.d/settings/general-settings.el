@@ -8,7 +8,9 @@
                           ""
                           (shell-command-to-string "$SHELL -i -c 'echo $PATH'"))))
     (setenv "PATH" path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
+    (setq eshell-path-env path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))
+    (setq exec-path (append exec-path '("/usr/texbin")))))
 
 (when window-system (set-exec-path-from-shell-PATH))
 
@@ -112,8 +114,9 @@
 ; disable some annoying stuff
 (fset 'yes-or-no-p 'y-or-n-p)
 
-
-(setq display-time-24-hour-format t)
+(setq display-time-default-load-average nil)
+(setq display-time-day-and-date t)
+(setq display-time-24hr-format t)
 (display-time)
 
 (server-start)

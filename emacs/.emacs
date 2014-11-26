@@ -26,3 +26,6 @@
 
 ;; Matlab mode
 (require 'matlab-settings)
+
+;; IRC settings
+(require 'erc-settings)
