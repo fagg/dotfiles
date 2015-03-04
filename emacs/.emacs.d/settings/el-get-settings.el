@@ -1,4 +1,4 @@
-; set the el-get path, and create it if it doesn't exist
+;; set the el-get path, and create it if it doesn't exist
 (setq elget-path plugin-path)
 (unless (file-exists-p elget-path)
   (make-directory elget-path))
@@ -19,7 +19,7 @@
                matlab-mode
                auctex
                exec-path-from-shell
-               evil
+               paredit
                ))
 
 ; first enable shallow clone, so we don't need to clone the entire

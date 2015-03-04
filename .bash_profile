@@ -17,7 +17,7 @@ alias tx='tar -xvf'
 alias tc='tar -czvf'
 alias webdl='python ~/bin/webdl/grabber.py'
 alias matlab='sh /Applications/MATLAB_R2014a.app/bin/matlab -nodisplay'
-alias emacs='/usr/local/bin/emacsclient'
+alias em='/usr/local/bin/emacsclient -n'
 # These are aliases to easily enable/disable the showing of hidden
 # (dot files) in Finder. Beware that this will restart Finder, so all
 # of your Finder windows will disappear briefly.
@@ -75,5 +75,3 @@ function git-ignore() {
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh;
-# Set vi mode for shell
-set -o vi
