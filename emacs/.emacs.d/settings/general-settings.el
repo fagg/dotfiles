@@ -25,7 +25,7 @@
 (tool-bar-mode 0)
 
 ; don't show the scroll bar
-(if window-system (scroll-bar-mode 1))
+(if window-system (scroll-bar-mode -1))
 
 ; turn on mouse wheel support for scrolling
 (require 'mwheel)
@@ -114,10 +114,11 @@
 ; disable some annoying stuff
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(setq display-time-default-load-average nil)
-(setq display-time-day-and-date t)
-(setq display-time-24hr-format t)
-(display-time)
+(setq display-time-mode nil)
+;(setq display-time-default-load-average nil)
+;(setq display-time-day-and-date nil)
+;(setq display-time-24hr-format nil)
+;(display-time)
 
 (server-start)
 

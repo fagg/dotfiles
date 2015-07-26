@@ -16,8 +16,9 @@ alias nano='nano -c'
 alias tx='tar -xvf'
 alias tc='tar -czvf'
 alias webdl='python ~/bin/webdl/grabber.py'
-alias matlab='sh /Applications/MATLAB_R2014a.app/bin/matlab -nodisplay'
+#alias matlab='sh /Applications/MATLAB_R2014a.app/bin/matlab -nodisplay'
 alias em='/usr/local/bin/emacsclient -n'
+
 # These are aliases to easily enable/disable the showing of hidden
 # (dot files) in Finder. Beware that this will restart Finder, so all
 # of your Finder windows will disappear briefly.
@@ -30,7 +31,7 @@ alias dotoff='defaults write com.apple.Finder AppleShowAllFiles NO &&  killall F
 export EDITOR=/usr/bin/vim
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
-export PATH=/usr/texbin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=/Applications/MATLAB_R2014a.app/bin:/usr/texbin:$HOME/bin:/usr/local/bin:$PATH
 
 ##############################################################################################
 # Prompt Settings
