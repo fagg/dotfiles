@@ -27,9 +27,5 @@
 ;; IRC settings
 (require 'erc-settings)
 
-;; gnus settings
-(require 'gnus-settings)
-
-;; common lisp environment (slime, paredit etc)
-(require 'cl-settings)
-
+;; org mode settings
+(require 'org-settings)
