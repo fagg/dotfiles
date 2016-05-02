@@ -2,17 +2,19 @@
 ;;; General or Global Settings ;;;
 ;--------------------------------;
 
-(defun set-exec-path-from-shell-PATH ()
-  (let ((path-from-shell (replace-regexp-in-string
-                          "[ \t\n]*$"
-                          ""
-                          (shell-command-to-string "$SHELL -i -c 'echo $PATH'"))))
-    (setenv "PATH" path-from-shell)
-    (setq eshell-path-env path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))
-    (setq exec-path (append exec-path '("/usr/texbin")))))
+;(defun set-exec-path-from-shell-PATH ()
+;  (let ((path-from-shell (replace-regexp-in-string
+;                          "[ \t\n]*$"
+;                          ""
+;                          (shell-command-to-string "$SHELL -i -c 'echo $PATH'"))))
+;    (setenv "PATH" path-from-shell)
+;    (setq eshell-path-env path-from-shell)
+;    (setq exec-path (split-string path-from-shell path-separator))
+;    (setq exec-path (append exec-path '("/Library/TeX/texbin")))))
 
-(when window-system (set-exec-path-from-shell-PATH))
+(setenv "PATH" "/usr/local/bin:/Library/TeX/texbin/:$PATH" t)
+
+;(when window-system (set-exec-path-from-shell-PATH))
 
 ; language
 (setq current-language-environment "English")
@@ -121,6 +123,17 @@
 ;(display-time)
 
 (server-start)
+; make mutt play nice
+(add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
+(add-hook 'mail-mode-hook 'turn-on-auto-fill)
+  (add-hook
+      'mail-mode-hook
+         (lambda ()
+               (define-key mail-mode-map [(control c) (control c)]
+                       (lambda ()
+                                 (interactive)
+                                          (save-buffer)
+                                                   (server-edit)))))
 
 (provide 'general-settings)
 

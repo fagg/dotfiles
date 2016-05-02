@@ -19,11 +19,6 @@ alias webdl='python ~/bin/webdl/grabber.py'
 #alias matlab='sh /Applications/MATLAB_R2014a.app/bin/matlab -nodisplay'
 alias em='/usr/local/bin/emacsclient -n'
 
-# These are aliases to easily enable/disable the showing of hidden
-# (dot files) in Finder. Beware that this will restart Finder, so all
-# of your Finder windows will disappear briefly.
-alias doton='defaults write com.apple.Finder AppleShowAllFiles YES && killall Finder'
-alias dotoff='defaults write com.apple.Finder AppleShowAllFiles NO &&  killall Finder'
 
 ##############################################################################################
 # Environment Variables
@@ -31,7 +26,17 @@ alias dotoff='defaults write com.apple.Finder AppleShowAllFiles NO &&  killall F
 export EDITOR=/usr/bin/vim
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
-export PATH=/Applications/MATLAB_R2014a.app/bin:/usr/texbin:$HOME/bin:/usr/local/bin:$PATH
+
+export MATLAB_PATH=/Applications/MATLAB_R2016a.app/bin
+export LATEX_PATH=/usr/texbin
+export GO_PATH=/usr/local/opt/go/libexec/bin
+export MY_BIN=$HOME/bin
+
+export PATH=$MY_BIN:$GO_PATH:$MATLAB_PATH:$LATEX_PATH:$PATH
+
+export GOPATH=$GO_PATH
+
+#export PATH=/Applications/MATLAB_R2016a.app/bin:/usr/texbin:$HOME/bin:/usr/local/bin:$PATH
 
 ##############################################################################################
 # Prompt Settings
@@ -76,3 +81,5 @@ function git-ignore() {
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh;
+
+. /Users/fagg/torch/install/bin/torch-activate # Torch

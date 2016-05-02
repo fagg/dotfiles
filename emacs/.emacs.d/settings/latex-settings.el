@@ -14,7 +14,7 @@
 
  (add-hook 'LaTeX-mode-hook (lambda ()
     (push
-        '("latexmk" "/usr/texbin/latexmk %t" TeX-run-TeX nil t
+        '("latexmk" "/Library/TeX/texbin/latexmk -pdf %t" TeX-run-TeX nil t
               :help "Run latexmk on file")
          TeX-command-list)))
   (add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "latexmk")))
