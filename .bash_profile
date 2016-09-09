@@ -38,14 +38,14 @@ source ~/torch/install/bin/torch-activate
 ##############################################################################################
 
 function parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\-(branch: \1\)/'
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1\]/'
 }
 
 prompt_command () {
       if [ $? -eq 0 ]; then # set an error string for the prompt, if applicable
           ERRPROMPT=""
       else
-          ERRPROMPT='-(return: $?)'
+          ERRPROMPT='[$?]'
       fi
 
     local GREEN="\[\033[0;32m\]"
@@ -57,7 +57,8 @@ prompt_command () {
     local RED="\[\033[0;31m\]"
     local DEFAULT="\[\033[0;39m\]"
     local YELLOW="\[\033[0;33m\]"
-    export PS1="$GREEN($GREEN\h$GREEN)$BCYAN-(in: \w)$YELLOW$(parse_git_branch)${RED}${ERRPROMPT} $DEFAULT: "
+    #export PS1="$GREEN[\u@\h]$DEFAULT->$BCYAN(\W)$DEFAULT->$YELLOW$(parse_git_branch)$DEFAULT->${RED}${ERRPROMPT}$DEFAULT\n$ "
+    export PS1="$RED${ERRPROMPT}$GREEN[\W]$YELLOW$(parse_git_branch)$DEFAULT -> "
 }
 
 PROMPT_COMMAND=prompt_command
