@@ -17,7 +17,6 @@
  my-packages '(color-theme
                markdown-mode
                matlab-mode
-               auctex
                exec-path-from-shell
                paredit
                lua-mode

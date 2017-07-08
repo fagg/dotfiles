@@ -19,9 +19,9 @@ export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
 
 # Default environment
-export MATLAB_PATH=/Applications/MATLAB_R2016a.app/bin
+export MATLAB_PATH=/Applications/MATLAB_R2017a.app/bin
 export LATEX_PATH=/usr/texbin
-export CUDA_PATH=/Developer/NVIDIA/CUDA-7.5/bin
+export CUDA_PATH=/Developer/NVIDIA/CUDA-8.0/bin
 export MY_BIN=$HOME/bin
 export PATH=$MY_BIN:$CUDA_PATH:$MATLAB_PATH:$LATEX_PATH:$PATH
 

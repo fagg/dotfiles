@@ -1,1 +1,0 @@
-/Users/fagg/dotfiles/emacs/erc-private.el
