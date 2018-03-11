@@ -9,23 +9,17 @@
 alias ll='LC_ALL=C ls -l'                # Show permissions etc
 alias ls='LC_ALL=C ls -a'                # Show all files and types by default
 alias l.='LC_ALL=C ls -d .[a-zA-Z0-9]*'  # Show hidden (dot files) only
-alias em='/usr/local/bin/emacsclient -n'
 
 ##############################################################################################
 # Environment Variables
 ##############################################################################################
-export EDITOR="/usr/local/bin/emacsclient -a /usr/bin/vim -n"
+export EDITOR="vim"
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
 
 # Default environment
-export MATLAB_PATH=/Applications/MATLAB_R2017a.app/bin
-export LATEX_PATH=/usr/texbin
-export CUDA_PATH=/Developer/NVIDIA/CUDA-8.0/bin
-export MY_BIN=$HOME/bin
-export PATH=$MY_BIN:$CUDA_PATH:$MATLAB_PATH:$LATEX_PATH:$PATH
-
-source ~/torch/install/bin/torch-activate
+export MY_BIN=$HOME/bin:$HOME/.local/bin
+export PATH=$MY_BIN:$PATH
 
 ##############################################################################################
 # Prompt Settings
