@@ -11,7 +11,7 @@ precmd () {
 	vcs_info
 }
 
-PROMPT='%{$fg[blue]%}[%n@%m]%{$fg[green]%}[%~]%{$fg[yellow]%}${vcs_info_msg_0_}%{$fg[red]%}[%?]%{$fg[white]%} -> '
+PROMPT='%{$fg[cyan]%}[%n@%m]%{$fg[green]%}[%~]%{$fg[yellow]%}${vcs_info_msg_0_}%{$fg[red]%}[%?]%{$fg[white]%} -> '
 
 # Coloring.
 export CLICOLOR=1
