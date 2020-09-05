@@ -22,13 +22,16 @@ alias ll='LC_ALL=C ls -l'                # Show permissions etc
 alias ls='LC_ALL=C ls -a'                # Show all files and types by default
 alias l.='LC_ALL=C ls -d .[a-zA-Z0-9]*'  # Show hidden (dot files) only
 alias em='emacsclient -n'
+alias zzz='systemctl suspend'
+#alias mutt='neomutt'
 
 # Editor
 export EDITOR='emacsclient -t'
 
 # Default environment
 export MY_BIN=$HOME/bin
-export PATH=$MY_BIN:$PATH
+export PYTHON_BIN=$HOME/.local/bin
+export PATH=$MY_BIN:$PYTHON_BIN:$PATH
 
 # Configure depending on what sort of box this is.
 case "$OSTYPE" in

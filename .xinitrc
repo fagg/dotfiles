@@ -1,11 +1,21 @@
-# Configure the keyboard
+#!/bin/bash
+
+# Set keybindings
 xmodmap ~/.Xmodmap
 
-# SSH key management
-export SSH_ASKPASS=/usr/lib/ssh/x11-ssh-askpass
-keychain ~/.ssh/id_rsa
-[ -f ~/.keychain/$HOSTNAME-sh ] && . ~/.keychain/$HOSTNAME-sh 2>/dev/null
-[ -f ~/.keychain/$HOSTNAME-sh-gpg ] && . ~/.keychain/$HOSTNAME-sh-gpg 2>/dev/null
+# Start compositor
+picom -f &
 
-# Finally, start i3wm
-exec i3
+# notifications
+dunst -conf ~/.dunstrc &
+
+# slstatus
+slstatus 2>&1 >/dev/null &
+
+# wallpaper
+nitrogen --restore &
+
+# dwm run loop
+while true; do 
+	dwm >/dev/null 2>&1
+done
