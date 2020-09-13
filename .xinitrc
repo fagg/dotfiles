@@ -4,7 +4,7 @@
 xmodmap ~/.Xmodmap
 
 # Start compositor
-picom -f &
+picom -f --config ~/.config/picom.conf &
 
 # notifications
 dunst -conf ~/.dunstrc &
@@ -15,7 +15,5 @@ slstatus 2>&1 >/dev/null &
 # wallpaper
 nitrogen --restore &
 
-# dwm run loop
-while true; do 
-	dwm >/dev/null 2>&1
-done
+# dwm
+dwm >/dev/null 2>&1

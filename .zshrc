@@ -23,7 +23,8 @@ alias ls='LC_ALL=C ls -a'                # Show all files and types by default
 alias l.='LC_ALL=C ls -d .[a-zA-Z0-9]*'  # Show hidden (dot files) only
 alias em='emacsclient -n'
 alias zzz='systemctl suspend'
-#alias mutt='neomutt'
+alias mutt='neomutt'
+alias checkmail='mbsync -a && neomutt'
 
 # Editor
 export EDITOR='emacsclient -t'
