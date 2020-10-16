@@ -1,0 +1,81 @@
+set realname="Ashton Fagg"
+set from="ashton@fagg.id.au"
+
+set beep=no
+set sleep_time=0
+set sidebar_visible=yes
+set check_new=yes
+set hostname=moon.fagg.id.au
+set hidden_host
+set tilde
+set edit_headers
+unset record
+bind pager <down> next-line
+bind pager <up> previous-line
+macro index G "!mbsync -a^M" "Update through mbsync"
+bind index,pager k previous-entry
+bind index,pager j next-entry
+bind index,pager g noop
+bind index,pager \Cu half-up
+bind index,pager \Cd half-down
+bind pager gg top
+bind index gg first-entry
+bind pager G bottom
+bind index G last-entry
+
+# Sidebar Navigation
+bind index,pager <down> sidebar-next
+bind index,pager <up> sidebar-prev
+bind index,pager <right> sidebar-open
+
+set status_format = "%f"
+set date_format = "%m%d"
+set index_format = "%Z %D %-15.15n %s"
+unset markers
+set delete
+set move = no
+set confirmappend = no
+set help = no
+set sort = mailbox-order
+set include
+set forward_quote
+set fast_reply
+set askcc
+unset mime_forward
+set send_charset = "utf-8:iso-8859-1:us-ascii"
+set charset = "utf-8"
+
+set sendmail="/usr/bin/msmtp"
+#set editor="vim"
+set editor="emacsclient"
+#set pager="emacsclient -n"
+set mbox_type = Maildir
+set folder=~/Mail/
+set spoolfile=+INBOX
+set postponed=+Drafts
+set attribution="On %[!%e %b %Y at %H:%M], %n wrote:"
+set forward_format="Fwd: %s"
+mailboxes =INBOX =Sent =Drafts =Archive =Trash =Shitlisted
+alternative_order text/plain text/enriched text/html
+
+macro index,pager A \
+  "<save-message>+Archive<enter>"  \
+  "move message to the archive"
+
+macro index,pager D \
+  "<save-message>+Trash<enter>"  \
+  "move message to the archive"
+
+set query_command="goobook query %s"
+macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
+bind editor <Tab> complete-query
+
+color error         color196        color235                        # message line error text
+color tilde         color81         color233                        # vi-like tildes marking blank lines
+color message       color82         color235
+color markers       brightcolor232  color222                        # wrapped-line /^\+/ markers
+color attachment    brightcolor165  color235                        # attachment headers
+color search        color232        color154                        # search patterns in pager
+color status        brightcolor232  color39
+color indicator     brightcolor232  color154                        # selected email in index
+color tree          brightcolor165  color233                        # arrow in threads (`-->')

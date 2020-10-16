@@ -1,0 +1,3 @@
+text/html; /usr/bin/chromium '%s'; needsterminal; nametemplate=%s.html
+application/pdf; /usr/bin/zathura '%s';
+image/*; /usr/bin/zathura '%s';

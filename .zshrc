@@ -28,11 +28,13 @@ alias checkmail='mbsync -a && neomutt'
 
 # Editor
 export EDITOR='emacsclient -t'
+export ALTERNATE_EDITOR='vim'
 
 # Default environment
 export MY_BIN=$HOME/bin
 export PYTHON_BIN=$HOME/.local/bin
-export PATH=$MY_BIN:$PYTHON_BIN:$PATH
+export GOLANG_BIN=$HOME/go/bin
+export PATH=$MY_BIN:$PYTHON_BIN:$GOLANG_BIN:$PATH
 
 # Configure depending on what sort of box this is.
 case "$OSTYPE" in

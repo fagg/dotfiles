@@ -10,10 +10,18 @@ picom -f --config ~/.config/picom.conf &
 dunst -conf ~/.dunstrc &
 
 # slstatus
-slstatus 2>&1 >/dev/null &
+#slstatus 2>&1 >/dev/null &
 
 # wallpaper
-nitrogen --restore &
+#nitrogen --restore &
 
 # dwm
-dwm >/dev/null 2>&1
+#exec dwm
+
+# X bullshit
+xsetroot -cursor_name left_ptr
+xset r rate 200 60
+
+# start emacs with dbus bullshit
+exec dbus-launch emacs
+#exec emacs
