@@ -13,6 +13,20 @@ precmd () {
 
 PROMPT='%{$fg[cyan]%}[%n@%m]%{$fg[green]%}[%1~]%{$fg[yellow]%}${vcs_info_msg_0_}%{$fg[red]%}[%?]%{$fg[white]%} -> '
 
+# We need this because emacs TRAMP mode barfs
+# on the fancy prompt sometimes.
+# Rather than adding a special snow-flake to my emacs,
+# this is easier because it's machine independent.
+if [[ "$TERM" = 'dumb' ]]; then
+	unsetopt zle		
+  	unsetopt prompt_cr
+  	unsetopt prompt_subst
+  	unfunction precmd
+  	unfunction preexec
+	PROMPT='$ '
+	PS1='$ '
+fi
+
 # Coloring.
 export CLICOLOR=1
 export LSCOLORS=Exfxcxdxbxegedabagacad
@@ -22,12 +36,9 @@ alias ll='LC_ALL=C ls -l'                # Show permissions etc
 alias ls='LC_ALL=C ls -a'                # Show all files and types by default
 alias l.='LC_ALL=C ls -d .[a-zA-Z0-9]*'  # Show hidden (dot files) only
 alias em='emacsclient -n'
-alias zzz='systemctl suspend'
-alias mutt='neomutt'
-alias checkmail='mbsync -a && neomutt'
 
 # Editor
-export EDITOR='emacsclient -t'
+export EDITOR='emacsclient -nw'
 export ALTERNATE_EDITOR='vim'
 
 # Default environment

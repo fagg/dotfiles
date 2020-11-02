@@ -5,6 +5,7 @@
 
 set nocompatible
 filetype off
+set backspace=2
 "************************************************************************************
 " Formatting and Indent Settings
 syntax enable
@@ -12,8 +13,8 @@ set background=dark
 set hidden
 set autoindent
 set smartindent
-set expandtab
-set ts=4 sw=4 sts=4
+set noexpandtab
+set ts=8 sw=8 sts=8
 set textwidth=0
 
 "***********************************************************************************

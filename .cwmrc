@@ -1,0 +1,86 @@
+fontname	"xft:Terminus:pixelsize=12:antialias=true:hinting=true"
+borderwidth	 1
+
+unbind-key all
+unbind-mouse all
+
+bind-key C4-Return	st
+bind-key C4-Delete	slock
+bind-key 4S-p    	menu-exec
+bind-key C4-w		menu-exec-wm
+bind-key 4-period	menu-ssh
+bind-key 4-Return	window-hide
+bind-key 4-Down		window-lower
+bind-key 4-Up		window-raise
+bind-key 4-slash	menu-window
+bind-key 4-p	        menu-cmd
+bind-key 4-Tab		window-cycle
+bind-key 4S-Tab		window-rcycle
+bind-key C4-n		window-menu-label
+bind-key 4-x		window-close
+bind-key C4-a		group-toggle-all
+bind-key C4-0		group-toggle-all
+
+bind-key C4-1		group-toggle-1
+bind-key C4-2		group-toggle-2
+bind-key C4-3		group-toggle-3
+
+bind-key C4-g		window-group
+bind-key C4-f		window-fullscreen
+bind-key C4-m		window-maximize
+bind-key C4-s		window-stick
+bind-key C4-equal	window-vmaximize
+bind-key C4S-equal	window-hmaximize
+bind-key C4S-f		window-freeze
+bind-key C4S-r		restart
+bind-key C4S-q		quit
+
+bind-key 4-h		window-move-left
+bind-key 4-j		window-move-down
+bind-key 4-k		window-move-up
+bind-key 4-l		window-move-right
+
+bind-key 4S-h		window-move-left-big
+bind-key 4S-j		window-move-down-big
+bind-key 4S-k		window-move-up-big
+bind-key 4S-l		window-move-right-big
+
+bind-key C4-h		window-resize-left
+bind-key C4-j		window-resize-down
+bind-key C4-k		window-resize-up
+bind-key C4-l		window-resize-right
+
+bind-key C4S-h		window-resize-left-big
+bind-key C4S-j		window-resize-down-big
+bind-key C4S-k		window-resize-up-big
+bind-key C4S-l		window-resize-right-big
+
+bind-mouse "1"		menu-window
+bind-mouse "2"		menu-group
+bind-mouse "3"		menu-cmd
+bind-mouse 4-1		window-move
+bind-mouse C4-1		window-group
+bind-mouse S4-1         window-close
+bind-mouse 4-3		window-resize
+bind-mouse S4-3		window-lower
+bind-mouse C4S-3	window-hide
+
+# Groups -- toggle group visibility
+
+bind-key 4-1		group-only-1
+bind-key 4-2		group-only-2
+bind-key 4-3		group-only-3
+
+# Groups -- move windows to specific
+
+bind-key 4S-1		window-movetogroup-1
+bind-key 4S-2		window-movetogroup-2
+bind-key 4S-3		window-movetogroup-3
+
+# these commands will appear in the command menu
+command Terminal st
+command Firefox firefox
+command Emacs emacs
+command arandr arandr
+command Spotify "st ncspot"
+command htop "st htop"
