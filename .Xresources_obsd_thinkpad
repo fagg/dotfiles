@@ -1,0 +1,8 @@
+xterm*background: black
+xterm*foreground: white
+xterm*faceName: Terminus:pixelsize=18
+xterm*utf8: 1
+xterm*selectToClipboard: true
+xterm*ScrollBar: false
+xterm*termName: xterm-256color
+xterm*metaSendsEscape: true
