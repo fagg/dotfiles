@@ -6,3 +6,7 @@ xterm*selectToClipboard: true
 xterm*ScrollBar: false
 xterm*termName: xterm-256color
 xterm*metaSendsEscape: true
+
+xterm*VT100.Translations: #override \
+                 Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+                 Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
