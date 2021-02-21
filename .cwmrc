@@ -20,9 +20,6 @@ bind-key 4-x		window-close
 bind-key C4-a		group-toggle-all
 bind-key C4-0		group-toggle-all
 
-bind-key C4-1		group-toggle-1
-bind-key C4-2		group-toggle-2
-bind-key C4-3		group-toggle-3
 
 bind-key C4-g		window-group
 bind-key C4-f		window-fullscreen
@@ -64,19 +61,36 @@ bind-mouse 4-3		window-resize
 bind-mouse S4-3		window-lower
 bind-mouse C4S-3	window-hide
 
-# Groups -- toggle group visibility
 
-bind-key 4-1		group-only-1
-bind-key 4-2		group-only-2
-bind-key 4-3		group-only-3
+bind-key 4S-1 window-movetogroup-1
+bind-key 4S-2 window-movetogroup-2
+bind-key 4S-3 window-movetogroup-3
+bind-key 4S-4 window-movetogroup-4
+bind-key 4S-5 window-movetogroup-5
+bind-key 4S-6 window-movetogroup-6
+bind-key 4S-7 window-movetogroup-7
+bind-key 4S-8 window-movetogroup-8
+bind-key 4S-9 window-movetogroup-9
 
-# Groups -- move windows to specific
-
-bind-key 4S-1		window-movetogroup-1
-bind-key 4S-2		window-movetogroup-2
-bind-key 4S-3		window-movetogroup-3
+bind-key 4-1 group-only-1
+bind-key 4-2 group-only-2
+bind-key 4-3 group-only-3
+bind-key 4-4 group-only-4
+bind-key 4-5 group-only-5
+bind-key 4-6 group-only-6
+bind-key 4-7 group-only-7
+bind-key 4-8 group-only-8
+bind-key 4-9 group-only-9
 
 # these commands will appear in the command menu
-command Terminal xterm
-command Firefox firefox
-command Emacs emacs
+command "Stuff:" ""
+command "  - XTerm" xterm
+command "  - Firefox" firefox
+command "  - Emacs" emacs
+command "System:" ""	
+command "  - Undock" "/bin/sh /home/fagg/bin/undock.sh"
+command "  - Dock" "/bin/sh /home/fagg/bin/dock.sh"
+command "Power:" ""
+command "  - Shutdown" "/usr/bin/doas /sbin/shutdown -p now"
+command "  - Reboot" "/usr/bin/doas /sbin/reboot"
+command "  - Suspend" "/usr/sbin/zzz"

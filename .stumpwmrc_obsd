@@ -1,0 +1,111 @@
+(in-package :stumpwm)
+(setf *default-package* :stumpwm)
+
+;; Debug helpers.
+;;(setf *debug-level* 10)
+;;(redirect-all-output (data-dir-file "debug-output" "txt"))
+
+;; Quicklisp
+(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
+                                       (user-homedir-pathname))))
+  (when (probe-file quicklisp-init)
+    (load quicklisp-init)))
+
+;; Startup.
+(setf *startup-message* nil)
+(setf *timeout-wait* 5)
+
+;; Font.
+(ql:quickload "clx-truetype")
+(xft:cache-fonts)
+;;(set-font (make-instance 'xft:font :family "Terminus" :size 11))
+;;(set-font "-*-terminus-*-*-*-*-16-*-*-*-*-*-*-*")
+(set-font "-*-terminus-medium-*-normal-*-20-*-*-*-*-*-*-*")
+
+;; Window, frame, mouse behavior
+(setf *mouse-focus-policy* :click
+      *window-border-style* :thin
+      *message-window-gravity* :center
+      *input-window-gravity* :center)
+
+(set-normal-gravity :bottom)
+(set-maxsize-gravity :center)
+(set-transient-gravity :bottom)
+
+(setf *normal-border-width* 2
+      *maxsize-border-width* 0
+      *transient-border-width* 2
+      *float-window-border* 1
+      *float-window-title-height* 1)
+
+(setf *frame-number-map* "1234567890"
+      *window-number-map* "1234567890")
+(setf *suppress-frame-indicator* t)
+
+;; Colors.
+(set-msg-border-width 1)
+(set-fg-color "green")
+(set-bg-color "black")
+(set-focus-color "white")
+(set-unfocus-color "black")
+(set-border-color "grey9")
+(set-win-bg-color "grey9")
+
+;; Modeline.
+
+(setf *mode-line-background-color* "black")
+(setf *mode-line-foreground-color* "white")
+(setf *mode-line-border-color*     "black")
+(setf *mode-line-timeout*          1)
+(setf *mode-line-position* :bottom)
+(setf *time-modeline-string* "%a %b %e %k:%M")
+(setf *window-format* "%m%n%s%c")
+;;(setf *window-format* "%n%s %c (%t)")
+(setf *screen-mode-line-format* (list "[^B%n^b] %W^>%d"))
+(enable-mode-line (current-screen) (current-head) t)
+
+
+;; Groups.
+
+(stumpwm:grename "1")
+(stumpwm:gnewbg "2")
+(stumpwm:gnewbg "3")
+(stumpwm:gnewbg "4")
+(stumpwm:gnewbg "5")
+(stumpwm:gnewbg "6")
+(stumpwm:gnewbg "7")
+(stumpwm:gnewbg "8")
+(stumpwm:gnewbg "9")
+
+;; Other helpful stuff.
+(defcommand firefox () ()
+  "Run Firefox"
+  (run-or-raise "firefox" '(:class "Firefox")))
+
+;; Keys.
+
+(undefine-key *root-map* (kbd "f"))
+(undefine-key *root-map* (kbd "C-f"))
+
+(loop for i from 1 to 9
+   do (define-key *top-map* (kbd (format nil "s-~A" i))
+	(format nil "gselect ~A" i)))
+
+(define-key *root-map* (kbd "f") "firefox")
+(define-key *root-map* (kbd "C-f") "firefox")
+(define-key *root-map* (kbd "C-q") "send-raw-key")
+
+(undefine-key *root-map* (kbd "s"))
+(undefine-key *root-map* (kbd "S"))
+(define-key *root-map* (kbd "-") "vsplit")
+(define-key *root-map* (kbd "|") "hsplit")
+
+(define-key *top-map* (kbd "S-Up") "move-focus up")
+(define-key *top-map* (kbd "S-Down") "move-focus down")
+(define-key *top-map* (kbd "S-Left") "move-focus left")
+(define-key *top-map* (kbd "S-Right") "move-focus right")
+(define-key *top-map* (kbd "C-S-Up") "move-window up")
+(define-key *top-map* (kbd "C-S-Down") "move-window down")
+(define-key *top-map* (kbd "C-S-Left") "move-window left")
+(define-key *top-map* (kbd "C-S-Right") "move-window right")
+(define-key *top-map* (kbd "C-s-0") "exec scrot")
