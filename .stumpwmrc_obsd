@@ -48,8 +48,8 @@
 (set-bg-color "black")
 (set-focus-color "white")
 (set-unfocus-color "black")
-(set-border-color "grey9")
-(set-win-bg-color "grey9")
+(set-border-color "black")
+(set-win-bg-color "black")
 
 ;; Modeline.
 
@@ -59,8 +59,8 @@
 (setf *mode-line-timeout*          1)
 (setf *mode-line-position* :bottom)
 (setf *time-modeline-string* "%a %b %e %k:%M")
-(setf *window-format* "%m%n%s%c")
-;;(setf *window-format* "%n%s %c (%t)")
+(setf *window-format* "%m%n%s %c")
+;;(setf *window-format* "%m%n%s %c (%12t)")
 (setf *screen-mode-line-format* (list "[^B%n^b] %W^>%d"))
 (enable-mode-line (current-screen) (current-head) t)
 
@@ -83,6 +83,9 @@
   (run-or-raise "firefox" '(:class "Firefox")))
 
 ;; Keys.
+
+
+(set-prefix-key (kbd "C-e"))
 
 (undefine-key *root-map* (kbd "f"))
 (undefine-key *root-map* (kbd "C-f"))
@@ -108,4 +111,4 @@
 (define-key *top-map* (kbd "C-S-Down") "move-window down")
 (define-key *top-map* (kbd "C-S-Left") "move-window left")
 (define-key *top-map* (kbd "C-S-Right") "move-window right")
-(define-key *top-map* (kbd "C-s-0") "exec scrot")
+(define-key *top-map* (kbd "C-S-1") "exec scrot")
