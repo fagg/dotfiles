@@ -18,8 +18,7 @@
 ;; Font.
 (ql:quickload "clx-truetype")
 (xft:cache-fonts)
-;;(set-font (make-instance 'xft:font :family "Terminus" :size 11))
-;;(set-font "-*-terminus-*-*-*-*-16-*-*-*-*-*-*-*")
+;;(set-font (make-instance 'xft:font :family "Spleen" :size 16))
 (set-font "-*-terminus-medium-*-normal-*-20-*-*-*-*-*-*-*")
 
 ;; Window, frame, mouse behavior
@@ -85,7 +84,7 @@
 ;; Keys.
 
 
-(set-prefix-key (kbd "C-e"))
+(set-prefix-key (kbd "C-t"))
 
 (undefine-key *root-map* (kbd "f"))
 (undefine-key *root-map* (kbd "C-f"))
@@ -93,6 +92,9 @@
 (loop for i from 1 to 9
    do (define-key *top-map* (kbd (format nil "s-~A" i))
 	(format nil "gselect ~A" i)))
+
+(define-key *root-map* (kbd "c") "exec urxvt")
+(define-key *root-map* (kbd "C-c") "exec urxvt")
 
 (define-key *root-map* (kbd "f") "firefox")
 (define-key *root-map* (kbd "C-f") "firefox")
