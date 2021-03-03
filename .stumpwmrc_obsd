@@ -18,7 +18,6 @@
 ;; Font.
 (ql:quickload "clx-truetype")
 (xft:cache-fonts)
-;;(set-font (make-instance 'xft:font :family "Spleen" :size 16))
 (set-font "-*-terminus-medium-*-normal-*-20-*-*-*-*-*-*-*")
 
 ;; Window, frame, mouse behavior
@@ -59,7 +58,6 @@
 (setf *mode-line-position* :bottom)
 (setf *time-modeline-string* "%a %b %e %k:%M")
 (setf *window-format* "%m%n%s %c")
-;;(setf *window-format* "%m%n%s %c (%12t)")
 (setf *screen-mode-line-format* (list "[^B%n^b] %W^>%d"))
 (enable-mode-line (current-screen) (current-head) t)
 
@@ -83,7 +81,6 @@
 
 ;; Keys.
 
-
 (set-prefix-key (kbd "C-t"))
 
 (undefine-key *root-map* (kbd "f"))
@@ -100,8 +97,8 @@
 (define-key *root-map* (kbd "C-f") "firefox")
 (define-key *root-map* (kbd "C-q") "send-raw-key")
 
-(undefine-key *root-map* (kbd "s"))
-(undefine-key *root-map* (kbd "S"))
+(undefine-key *tile-group-root-map* (kbd "s"))
+(undefine-key *tile-group-root-map* (kbd "S"))
 (define-key *root-map* (kbd "-") "vsplit")
 (define-key *root-map* (kbd "|") "hsplit")
 
