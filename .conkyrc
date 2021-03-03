@@ -1,0 +1,45 @@
+# General settings.
+background yes
+use_xft yes
+xftfont Terminus:size=16
+xftalpha 1
+update_interval 1
+total_run_times 0
+own_window no
+own_window_transparent yes
+double_buffer yes
+minimum_size 400 400
+maximum_width 400
+draw_shades yes
+default_color white
+default_shade_color black
+default_outline_color white
+alignment top_right
+gap_x 5
+gap_y 5
+no_buffers yes
+cpu_avg_samples 2
+
+# Text and graphs.
+TEXT
+${font Terminus:bold:size=14}CLOCK ${hr 2}
+${font Terminus:normal:size=14}$alignr$time
+${font Terminus:bold:size=14}SYSTEM ${hr 2}
+${font Terminus:normal:size=14}$sysname $kernel/$machine
+Host:$alignr$nodename
+Uptime:$alignr$uptime
+RAM:$alignr$mem/$memmax
+Swap usage:$alignr$swap/$swapmax
+/home usage:$alignr${fs_used /home} of ${fs_size /home}
+${fs_bar 6 /home}
+
+${font Terminus:bold:size=14}BATTERY ${hr 2}
+${font Terminus:normal:size=14}AC Status:$alignr${apm_adapter}
+Percentage:$alignr${apm_battery_life}
+Estimated Time:$alignr${apm_battery_time}
+ 
+${font Terminus:bold:size=14}NETWORK ${hr 2}
+${font Terminus:normal:size=14}IP address: $alignr ${addr iwx0}
+${downspeedgraph iwx0}
+Inbound ${downspeed iwx0} kb/s $alignr Total: ${totaldown iwx0}
+Outbound ${upspeed iwx0} kb/s $alignr Total: ${totalup iwx0}
