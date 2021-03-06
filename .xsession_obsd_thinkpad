@@ -2,6 +2,8 @@ export LANG=en_US.UTF-8
 export ENV=$HOME/.kshrc
 
 xset b off
+xset +fp /usr/local/share/fonts/terminus
+xset +fp /usr/local/share/fonts/spleen
 xsetroot -solid black
 
 xinput set-prop "/dev/wsmouse" "WS Pointer Wheel Emulation" 1
@@ -14,8 +16,8 @@ xsetroot -cursor_name left_ptr
 xset r rate 200 60
 xrdb ~/.Xresources
 
-xidle -program /usr/local/bin/slock &
+xidle &
 nitrogen --restore &
 conky &
 tpb &
-exec cwm
+exec stumpwm

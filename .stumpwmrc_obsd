@@ -6,18 +6,18 @@
 ;;(redirect-all-output (data-dir-file "debug-output" "txt"))
 
 ;; Quicklisp
-(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
-                                       (user-homedir-pathname))))
-  (when (probe-file quicklisp-init)
-    (load quicklisp-init)))
+;;(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
+;;                                       (user-homedir-pathname))))
+;;  (when (probe-file quicklisp-init)
+;;    (load quicklisp-init)))
 
 ;; Startup.
 (setf *startup-message* nil)
 (setf *timeout-wait* 5)
 
 ;; Font.
-(ql:quickload "clx-truetype")
-(xft:cache-fonts)
+;;(ql:quickload "clx-truetype")
+;;(xft:cache-fonts)
 (set-font "-*-terminus-medium-*-normal-*-20-*-*-*-*-*-*-*")
 
 ;; Window, frame, mouse behavior
