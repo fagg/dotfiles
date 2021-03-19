@@ -6,10 +6,17 @@
 ;;(redirect-all-output (data-dir-file "debug-output" "txt"))
 
 ;; Quicklisp
-;;(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
-;;                                       (user-homedir-pathname))))
-;;  (when (probe-file quicklisp-init)
-;;    (load quicklisp-init)))
+(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
+                                       (user-homedir-pathname))))
+  (when (probe-file quicklisp-init)
+    (load quicklisp-init)))
+
+;; Swank
+(require :swank)
+(swank-loader:init)
+(swank:create-server :port 4004
+                     :style swank:*communication-style*
+                     :dont-close t)
 
 ;; Startup.
 (setf *startup-message* nil)
