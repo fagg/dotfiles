@@ -39,7 +39,7 @@ Percentage:$alignr${apm_battery_life}
 Estimated Time:$alignr${apm_battery_time}
  
 ${font Terminus:bold:size=14}NETWORK ${hr 2}
-${font Terminus:normal:size=14}IP address: $alignr ${addr iwx0}
-${downspeedgraph iwx0}
-Inbound ${downspeed iwx0} kb/s $alignr Total: ${totaldown iwx0}
-Outbound ${upspeed iwx0} kb/s $alignr Total: ${totalup iwx0}
+${font Terminus:normal:size=14}IP address: $alignr ${addr trunk0}
+${downspeedgraph trunk0}
+Inbound ${downspeed trunk0} kb/s $alignr Total: ${totaldown trunk0}
+Outbound ${upspeed trunk0} kb/s $alignr Total: ${totalup trunk0}
