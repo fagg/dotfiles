@@ -86,6 +86,10 @@
   "Run Firefox"
   (run-or-raise "firefox" '(:class "Firefox")))
 
+(defcommand emacsclient () ()
+   "Run emacs"
+   (run-or-raise "emacsclient -c" '(:class "Emacs")))
+
 ;; Keys.
 
 (set-prefix-key (kbd "C-t"))
@@ -99,6 +103,10 @@
 
 (define-key *root-map* (kbd "c") "exec urxvt")
 (define-key *root-map* (kbd "C-c") "exec urxvt")
+
+(undefine-key *root-map* (kbd "e"))
+(define-key *root-map* (kbd "e") "emacsclient")
+(define-key *root-map* (kbd "C-e") "emacsclient")
 
 (define-key *root-map* (kbd "f") "firefox")
 (define-key *root-map* (kbd "C-f") "firefox")

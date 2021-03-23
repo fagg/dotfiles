@@ -20,4 +20,5 @@ xidle &
 nitrogen --restore &
 conky &
 tpb &
+emacs --daemon &
 exec stumpwm
