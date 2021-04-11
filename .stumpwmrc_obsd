@@ -19,12 +19,10 @@
                      :dont-close t)
 
 ;; Startup.
-(setf *startup-message* nil)
+(setf *startup-message* "Hack the planet. Good on ya champ.")
 (setf *timeout-wait* 5)
 
 ;; Font.
-;;(ql:quickload "clx-truetype")
-;;(xft:cache-fonts)
 (set-font "-*-terminus-medium-*-normal-*-20-*-*-*-*-*-*-*")
 
 ;; Window, frame, mouse behavior
@@ -57,7 +55,6 @@
 (set-win-bg-color "black")
 
 ;; Modeline.
-
 (setf *mode-line-background-color* "black")
 (setf *mode-line-foreground-color* "white")
 (setf *mode-line-border-color*     "black")
@@ -68,9 +65,7 @@
 (setf *screen-mode-line-format* (list "[^B%n^b] %W^>%d"))
 (enable-mode-line (current-screen) (current-head) t)
 
-
 ;; Groups.
-
 (stumpwm:grename "1")
 (stumpwm:gnewbg "2")
 (stumpwm:gnewbg "3")
@@ -98,6 +93,15 @@
    "Dock"
    (run-shell-command "~/bin/dock.sh"))
 
+(defcommand scrot () ()
+   "Screenshot"
+   (run-shell-command "scrot"))
+
+(defcommand scrot-select () ()
+   "Screenshot with selection"
+   (run-shell-command "scrot -s"))
+
+;; NOTE: Power commands are not bound to keys right now.
 (defcommand reboot () () 
    "Reboot"
    (run-shell-command "doas reboot"))
@@ -117,29 +121,7 @@
    do (define-key *top-map* (kbd (format nil "s-~A" i))
 	(format nil "gselect ~A" i)))
 
-
-(define-key *root-map* (kbd "c") "exec urxvt")
-(define-key *root-map* (kbd "C-c") "exec urxvt")
-
-(define-key *root-map* (kbd "d") "dock")
-(define-key *root-map* (kbd "u") "undock")
-
-(undefine-key *root-map* (kbd "e"))
-(define-key *root-map* (kbd "e") "emacsclient")
-(define-key *root-map* (kbd "C-e") "emacsclient")
-
-(define-key *root-map* (kbd "f") "firefox")
-(define-key *root-map* (kbd "C-f") "firefox")
-(define-key *root-map* (kbd "C-q") "send-raw-key")
-
-(undefine-key *tile-group-root-map* (kbd "s"))
-(undefine-key *tile-group-root-map* (kbd "S"))
-(define-key *root-map* (kbd "-") "vsplit")
-(define-key *root-map* (kbd "|") "hsplit")
-
-(undefine-key *root-map* (kbd "!"))
-(define-key *root-map* (kbd "M-x") "exec")
-
+;; General keybinds
 ;; Less annoying with the Kinesis keyboard.
 (undefine-key *tile-group-root-map* (kbd "M-Right"))
 (undefine-key *tile-group-root-map* (kbd "M-Left"))
@@ -149,6 +131,45 @@
 (define-key *tile-group-root-map* (kbd "S-Left") "move-window left")
 (define-key *tile-group-root-map* (kbd "S-Up") "move-window up")
 (define-key *tile-group-root-map* (kbd "S-Down") "move-window down")
+
+;; Get rid of expose, and use those keys for something useful.
+(undefine-key *groups-map* (kbd "RET"))
+(undefine-key *groups-map* (kbd "C-RET"))
+(undefine-key *group-root-map* (kbd "F11"))
+(define-key *group-root-map* (kbd "C-RET") "fullscreen")
+(define-key *group-root-map* (kbd "RET") "fullscreen")
+
+;; Terminal
+(define-key *root-map* (kbd "c") "exec urxvt")
+(define-key *root-map* (kbd "C-c") "exec urxvt")
+
+;; Docking/undocking xrandar automation
+(define-key *root-map* (kbd "d") "dock")
+(define-key *root-map* (kbd "u") "undock")
+
+;; emacs
+(undefine-key *root-map* (kbd "e"))
+(define-key *root-map* (kbd "e") "emacsclient")
+(define-key *root-map* (kbd "C-e") "emacsclient")
+
+;; Firefox
+(define-key *root-map* (kbd "f") "firefox")
+(define-key *root-map* (kbd "C-f") "firefox")
+(define-key *root-map* (kbd "C-q") "send-raw-key")
+
+;; Screenshotting
+(define-key *root-map* (kbd "s") "scrot")
+(define-key *root-map* (kbd "C-s") "scrot-select")
+
+;; Splitting commands.
+(undefine-key *tile-group-root-map* (kbd "s"))
+(undefine-key *tile-group-root-map* (kbd "S"))
+(define-key *root-map* (kbd "-") "vsplit")
+(define-key *root-map* (kbd "|") "hsplit")
+
+;; Exec more like emacs
+(undefine-key *root-map* (kbd "!"))
+(define-key *root-map* (kbd "M-x") "exec")
 
 ;; Remap stuff for inconsiderate applications.
 (define-remapped-keys
