@@ -146,6 +146,9 @@
 (define-key *root-map* (kbd "-") "vsplit")
 (define-key *root-map* (kbd "|") "hsplit")
 
+;; Makes sense, right? Note: DEL = backspace usually.
+(define-key *root-map* (kbd "C-DEL") "fclear")
+
 ;; Exec more like emacs
 (undefine-key *root-map* (kbd "!"))
 (define-key *root-map* (kbd "M-x") "exec")
