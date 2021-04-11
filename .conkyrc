@@ -14,7 +14,7 @@ draw_shades yes
 default_color white
 default_shade_color black
 default_outline_color white
-alignment top_right
+alignment top_left
 gap_x 5
 gap_y 5
 no_buffers yes
