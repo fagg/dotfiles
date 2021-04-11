@@ -28,10 +28,10 @@
 (set-font "-*-terminus-medium-*-normal-*-20-*-*-*-*-*-*-*")
 
 ;; Window, frame, mouse behavior
-(setf *mouse-focus-policy* :click
+(setf *mouse-focus-policy* :sloppy
       *window-border-style* :thin
-      *message-window-gravity* :center
-      *input-window-gravity* :center)
+      *message-window-gravity* :bottom-right
+      *input-window-gravity* :bottom-right)
 
 (set-normal-gravity :bottom)
 (set-maxsize-gravity :center)
@@ -49,7 +49,7 @@
 
 ;; Colors.
 (set-msg-border-width 1)
-(set-fg-color "green")
+(set-fg-color "white")
 (set-bg-color "black")
 (set-focus-color "white")
 (set-unfocus-color "black")
@@ -90,6 +90,14 @@
    "Run emacs"
    (run-or-raise "emacsclient -c" '(:class "Emacs")))
 
+(defcommand undock () ()
+   "Undock"
+   (run-shell-command "~/bin/undock.sh"))
+
+(defcommand dock() ()
+   "Dock"
+   (run-shell-command "~/bin/dock.sh"))
+
 ;; Keys.
 
 (set-prefix-key (kbd "C-t"))
@@ -101,8 +109,12 @@
    do (define-key *top-map* (kbd (format nil "s-~A" i))
 	(format nil "gselect ~A" i)))
 
+
 (define-key *root-map* (kbd "c") "exec urxvt")
 (define-key *root-map* (kbd "C-c") "exec urxvt")
+
+(define-key *root-map* (kbd "d") "dock")
+(define-key *root-map* (kbd "u") "undock")
 
 (undefine-key *root-map* (kbd "e"))
 (define-key *root-map* (kbd "e") "emacsclient")
@@ -129,3 +141,19 @@
 (define-key *tile-group-root-map* (kbd "S-Left") "move-window left")
 (define-key *tile-group-root-map* (kbd "S-Up") "move-window up")
 (define-key *tile-group-root-map* (kbd "S-Down") "move-window down")
+
+;; Remap stuff for inconsiderate applications.
+(define-remapped-keys
+    '(("(Firefox|Chrome)"
+       ("C-n"   . "Down")
+       ("C-p"   . "Up")
+       ("C-f"   . "Right")
+       ("C-b"   . "Left")
+       ("C-v"   . "Next")
+       ("M-w"   . "C-c")
+       ("C-w"   . "C-x")
+       ("C-y"   . "C-v")
+       ("C-g"   . "Escape")
+       ("M-x"   . "C-l")
+       ("C-s"   . "C-f")
+       ("C-k"   . "C-w"))))
