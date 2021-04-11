@@ -94,9 +94,17 @@
    "Undock"
    (run-shell-command "~/bin/undock.sh"))
 
-(defcommand dock() ()
+(defcommand dock () ()
    "Dock"
    (run-shell-command "~/bin/dock.sh"))
+
+(defcommand reboot () () 
+   "Reboot"
+   (run-shell-command "doas reboot"))
+
+(defcommand poweroff () ()
+   "Power off"
+    (run-shell-command "doas shutdown -p now"))	    
 
 ;; Keys.
 
