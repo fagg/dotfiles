@@ -81,6 +81,8 @@
   "Run Firefox"
   (run-or-raise "firefox" '(:class "Firefox")))
 
+;; Depending on the machine, you might actually want the emacs
+;; command that's built-in. This is for emacs --daemon.
 (defcommand emacsclient () ()
    "Run emacs"
    (run-or-raise "emacsclient -c" '(:class "Emacs")))
@@ -116,7 +118,6 @@
 
 (undefine-key *root-map* (kbd "f"))
 (undefine-key *root-map* (kbd "C-f"))
-
 (loop for i from 1 to 9
    do (define-key *top-map* (kbd (format nil "s-~A" i))
 	(format nil "gselect ~A" i)))
@@ -138,6 +139,16 @@
 (undefine-key *group-root-map* (kbd "F11"))
 (define-key *group-root-map* (kbd "C-RET") "fullscreen")
 (define-key *group-root-map* (kbd "RET") "fullscreen")
+
+;; Splitting commands.
+(undefine-key *tile-group-root-map* (kbd "s"))
+(undefine-key *tile-group-root-map* (kbd "S"))
+(define-key *root-map* (kbd "-") "vsplit")
+(define-key *root-map* (kbd "|") "hsplit")
+
+;; Exec more like emacs
+(undefine-key *root-map* (kbd "!"))
+(define-key *root-map* (kbd "M-x") "exec")
 
 ;; Terminal
 (define-key *root-map* (kbd "c") "exec urxvt")
@@ -161,16 +172,6 @@
 (define-key *root-map* (kbd "s") "scrot")
 (define-key *root-map* (kbd "C-s") "scrot-select")
 
-;; Splitting commands.
-(undefine-key *tile-group-root-map* (kbd "s"))
-(undefine-key *tile-group-root-map* (kbd "S"))
-(define-key *root-map* (kbd "-") "vsplit")
-(define-key *root-map* (kbd "|") "hsplit")
-
-;; Exec more like emacs
-(undefine-key *root-map* (kbd "!"))
-(define-key *root-map* (kbd "M-x") "exec")
-
 ;; Remap stuff for inconsiderate applications.
 (define-remapped-keys
     '(("(Firefox|Chrome)"
@@ -187,3 +188,4 @@
        ("M-x"   . "C-l")
        ("C-s"   . "C-f")
        ("C-k"   . "C-w"))))
+       
