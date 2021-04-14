@@ -23,7 +23,7 @@
 (setf *timeout-wait* 5)
 
 ;; Font.
-(set-font "-*-terminus-medium-*-normal-*-20-*-*-*-*-*-*-*")
+(set-font "-*-terminus-medium-*-normal-*-14-*-*-*-*-*-*-*")
 
 ;; Window, frame, mouse behavior
 (setf *mouse-focus-policy* :sloppy
