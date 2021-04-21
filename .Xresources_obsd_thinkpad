@@ -22,7 +22,7 @@ xterm*VT100.Translations: #override \
 URxvt*background: black
 URxvt*foreground: white
 URxvt*scrollBar: false
-URxvt*font: xft:Terminus:pixelsize=16
+URxvt*font: xft:Terminus:pixelsize=18
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt.iso14755: false
