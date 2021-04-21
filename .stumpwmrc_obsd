@@ -6,7 +6,7 @@
 ;;(redirect-all-output (data-dir-file "debug-output" "txt"))
 
 ;; Quicklisp
-(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
+(let ((quicklisp-init (merge-pathnames "src/lisp/setup.lisp"
                                        (user-homedir-pathname))))
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
@@ -218,4 +218,16 @@
        ("M-x"   . "C-l")
        ("C-s"   . "C-f")
        ("C-k"   . "C-w"))))
-       
+
+;; startup stuff
+(run-shell-command "xsetroot -solid black")
+(run-shell-command "xrdb ~/.Xresources")
+(run-shell-command "xset b off")
+(run-shell-command "xset r rate 200 60")
+(run-shell-command "setxkbmap -option ctrl:nocaps")
+(run-shell-command "xsetroot -cursor_name left_ptr")
+(run-shell-command "xidle &")
+(run-shell-command "emacs --daemon &")
+(run-shell-command "conky &")
+(run-shell-command "nitrogen --restore &")
+(run-shell-command "tbp &")
