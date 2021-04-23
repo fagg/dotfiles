@@ -19,6 +19,9 @@
 (setf *startup-message* "Hack the planet. Good on ya champ.")
 (setf *timeout-wait* 5)
 
+;; Bring in my sndioctl control library.
+(ql:quickload :stumpwm-sndioctl)
+
 ;; Font.
 (set-font "-*-terminus-medium-*-normal-*-14-*-*-*-*-*-*-*")
 
@@ -202,22 +205,10 @@
 (define-key *root-map* (kbd "s") "scrot")
 (define-key *root-map* (kbd "C-s") "scrot-select")
 
-;; Remap stuff for inconsiderate applications.
-(define-remapped-keys
-    '(("(Firefox|Chrome)"
-       ("C-n"   . "Down")
-       ("C-p"   . "Up")
-       ("C-f"   . "Right")
-       ("C-b"   . "Left")
-       ("C-v"   . "Next")
-       ("M-w"   . "C-c")
-       ("C-w"   . "C-x")
-       ("C-y"   . "C-v")
-       ("C-g"   . "Escape")
-       ("C-c"   . "C-r")       		
-       ("M-x"   . "C-l")
-       ("C-s"   . "C-f")
-       ("C-k"   . "C-w"))))
+;; My volume key stuff.
+(define-key *top-map* (kbd "XF86AudioMute") "toggle-mute")
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "volume-down")
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "volume-up")
 
 ;; startup stuff
 (run-shell-command "xsetroot -solid black")
@@ -230,4 +221,3 @@
 (run-shell-command "emacs --daemon &")
 (run-shell-command "conky &")
 (run-shell-command "nitrogen --restore &")
-(run-shell-command "tbp &")
