@@ -1,7 +1,7 @@
 # General settings.
 background yes
 use_xft yes
-xftfont Terminus:size=16
+xftfont Spleen:size=16
 xftalpha 1
 update_interval 1
 total_run_times 0
