@@ -21,7 +21,7 @@
 
 
 ;; Font.
-(set-font "-*-terminus-medium-*-normal-*-14-*-*-*-*-*-*-*")
+(set-font "-*-terminus-medium-*-normal-*-16-*-*-*-*-*-*-*")
 
 ;; Window, frame, mouse behavior
 (setf *mouse-focus-policy* :sloppy
@@ -45,19 +45,19 @@
 
 ;; Colors.
 (set-msg-border-width 1)
-(set-fg-color "white")
-(set-bg-color "black")
+(set-fg-color "black")
+(set-bg-color "gray")
 (set-focus-color "white")
 (set-unfocus-color "black")
 (set-border-color "black")
 (set-win-bg-color "black")
 
 ;; Modeline.
-(setf *mode-line-background-color* "black")
-(setf *mode-line-foreground-color* "white")
+(setf *mode-line-background-color* "gray")
+(setf *mode-line-foreground-color* "black")
 (setf *mode-line-border-color*     "black")
 (setf *mode-line-timeout*          1)
-(setf *mode-line-position* :bottom)
+(setf *mode-line-position* :top)
 (setf *time-modeline-string* "%a %b %e %k:%M")
 (setf *window-format* "%m%n%s %c")
 (setf *screen-mode-line-format* (list "[^B%n^b] %W^>%d"))

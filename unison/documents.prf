@@ -1,0 +1,5 @@
+# Unison preferences
+root = /home/fagg/Documents
+root = ssh://elara.fagg.id.au//mnt/constellation/fagg/Documents
+
+ignore = Name {,.}*{.localized}
