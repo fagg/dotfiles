@@ -12,6 +12,7 @@ xterm*multiScroll: true
 xterm*scrollKey: true
 xterm*scrollTtyKeypress: true
 xterm*scrollTtyOutput: false
+xterm*internalBorder: 0
 
 
 
