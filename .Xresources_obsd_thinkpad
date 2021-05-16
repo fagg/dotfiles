@@ -1,6 +1,7 @@
-xterm*background: black
-xterm*foreground: white
-xterm*faceName: Terminus:pixelsize=16:antialias=false
+
+xterm*background: gray
+xterm*foreground: black
+xterm*faceName: Spleen:pixelsize=16:antialias=false
 xterm*utf8: 1
 xterm*selectToClipboard: true
 xterm*ScrollBar: false
@@ -14,21 +15,9 @@ xterm*scrollTtyKeypress: true
 xterm*scrollTtyOutput: false
 xterm*internalBorder: 0
 
-
-
 xterm*VT100.Translations: #override \
                  Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
                  Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
-
-URxvt*background: black
-URxvt*foreground: white
-URxvt*scrollBar: false
-URxvt*font: xft:Terminus:pixelsize=18
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
-URxvt.iso14755: false
-URxvt.iso14755_52: false
-
 
 ! ===== xidle
 ! drag pointer to lower left corner to lock screen
