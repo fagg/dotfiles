@@ -21,7 +21,7 @@
 
 
 ;; Font.
-(set-font "-*-terminus-medium-*-normal-*-16-*-*-*-*-*-*-*")
+(set-font "-*-spleen-medium-*-normal-*-16-*-*-*-*-*-*-*")
 
 ;; Window, frame, mouse behavior
 (setf *mouse-focus-policy* :sloppy
@@ -34,7 +34,7 @@
 (set-transient-gravity :bottom)
 
 (setf *normal-border-width* 2
-      *maxsize-border-width* 0
+      *maxsize-border-width* 2
       *transient-border-width* 2
       *float-window-border* 1
       *float-window-title-height* 1)
@@ -47,7 +47,7 @@
 (set-msg-border-width 1)
 (set-fg-color "black")
 (set-bg-color "gray")
-(set-focus-color "white")
+(set-focus-color "gray")
 (set-unfocus-color "black")
 (set-border-color "black")
 (set-win-bg-color "black")
@@ -219,5 +219,4 @@
 (run-shell-command "xsetroot -cursor_name left_ptr")
 (run-shell-command "xidle &")
 (run-shell-command "emacs --daemon &")
-(run-shell-command "conky &")
 (run-shell-command "nitrogen --restore &")
