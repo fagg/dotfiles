@@ -19,8 +19,6 @@
 (setf *startup-message* "Hack the planet. Good on ya champ.")
 (setf *timeout-wait* 5)
 
-;; Bring in my sndioctl control library.
-(ql:quickload :stumpwm-sndioctl)
 
 ;; Font.
 (set-font "-*-terminus-medium-*-normal-*-14-*-*-*-*-*-*-*")
@@ -206,6 +204,8 @@
 (define-key *root-map* (kbd "C-s") "scrot-select")
 
 ;; My volume key stuff.
+;; Bring in my sndioctl control library.
+(ql:quickload :stumpwm-sndioctl)
 (define-key *top-map* (kbd "XF86AudioMute") "toggle-mute")
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "volume-down")
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "volume-up")
@@ -214,7 +214,7 @@
 (run-shell-command "xsetroot -solid black")
 (run-shell-command "xrdb ~/.Xresources")
 (run-shell-command "xset b off")
-(run-shell-command "xset r rate 200 60")
+(run-shell-command "xset r rate 150 50")
 (run-shell-command "setxkbmap -option ctrl:nocaps")
 (run-shell-command "xsetroot -cursor_name left_ptr")
 (run-shell-command "xidle &")
