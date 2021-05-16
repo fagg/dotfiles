@@ -19,4 +19,14 @@ function parse_git_branch {
 
 PS1='$CYAN[\u@\h]$GREEN[\W]$RED[$?]$YELLOW$(parse_git_branch)$DEFAULT -> '
 
+function cvs_up {
+	cvs -q up -Pd -A
+}
+function cvs_diff {
+	cvs -q diff -uNp $1
+}
+function cvs_revert {
+	cvs update -C $1
+}
+
 export EDITOR ALTERNATE_EDITOR PS1
