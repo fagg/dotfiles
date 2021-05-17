@@ -4,36 +4,36 @@
 *.cursorColor:  #000000
 
 ! black
-*.color0:       #101010
-*.color8:       #525252
+*.color0:       #e0e0e0
+*.color8:       #8f6f7f
 
 ! red
-*.color1:       #7c7c7c
-*.color9:       #7c7c7c
+*.color1:       #336c6c
+*.color9:       #235c5c
 
 ! green
-*.color2:       #8e8e8e
-*.color10:      #8e8e8e
+*.color2:       #9f4b75
+*.color10:      #3c4060
 
 ! yellow
-*.color3:       #a0a0a0
-*.color11:      #a0a0a0
+*.color3:       #205070
+*.color11:      #0f2060
 
 ! blue
-*.color4:       #686868
-*.color12:      #686868
+*.color4:       #af9f8f
+*.color12:      #6b400c
 
 ! magenta
-*.color5:       #747474
-*.color13:      #747474
+*.color5:       #23733c
+*.color13:      #136c2c
 
 ! cyan
-*.color6:       #868686
-*.color14:      #868686
+*.color6:       #732f2c
+*.color14:      #6c1f1c
 
 ! white
-*.color7:       #b9b9b9
-*.color15:      #f7f7f7
+*.color7:       #232333
+*.color15:      #9a9aaa
 
 xterm*faceName: Spleen:pixelsize=16:antialias=false
 xterm*utf8: 1
