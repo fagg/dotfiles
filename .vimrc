@@ -9,7 +9,7 @@ set backspace=2
 "************************************************************************************
 " Formatting and Indent Settings
 syntax enable
-set background=dark
+set background=light
 set hidden
 set autoindent
 set smartindent
