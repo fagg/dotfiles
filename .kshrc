@@ -1,4 +1,4 @@
-EDITOR='emacsclient -nw'
+EDITOR='emacsclient -c'
 ALTERNATE_EDITOR='mg'
 
 function cvs_up {
