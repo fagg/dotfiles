@@ -186,8 +186,8 @@
 (define-key *root-map* (kbd "M-x") "exec")
 
 ;; Terminal
-(define-key *root-map* (kbd "c") "vterm")
-(define-key *root-map* (kbd "C-c") "vterm")
+(define-key *root-map* (kbd "c") "exec xterm")
+(define-key *root-map* (kbd "C-c") "exec xterm")
 
 ;; Docking/undocking xrandr automation
 (define-key *root-map* (kbd "d") "dock")
