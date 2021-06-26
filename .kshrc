@@ -12,7 +12,7 @@ function cvs_revert {
 }
 
 function irc {
-    ssh hermippe -t "emacsclient -nw"
+    ssh eurydome -t "tmux a -d -t irc"
 }
 
 export EDITOR ALTERNATE_EDITOR
